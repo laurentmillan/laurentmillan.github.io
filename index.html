@@ -1,7 +1,52 @@
-<!DOCTYPE html>
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
+    <head>
+        <title>Sample Scripter</title>
+        <!-- Actions -->
+        <meta name="IS_Action_Pickup">
+
+        <!-- Attributes -->
+        <!--<meta name="IS_Attr_FirstName">-->
+
+        <!-- Scripts -->
+        <script>
+            var container = 'externalPage';
+            var externalUrl = 'http://46.218.13.6/eScriptRun/default.aspx?Guid_Company=44B4530C-865F-40A5-824B-81045D794DF6&Guid_Script=57acb44d-64bb-dcf3-ea7d-2f14dbc5&lastModif=2392016121634&KEY_INDEX=1';
+            //var externalUrl = 'http://perdu.com';
+
+            function Pickup() {
+                SendToIFrame();
+                //IS_Action_Pickup.click();
+            }
+
+            function SendToIFrame() {
+                var divContainer = document.getElementById(container);
+
+                // Add iFrame to div
+                var frame = document.getElementById("iframe");
+                if (frame == null) {
+                    frame = document.createElement("iframe");
+                    frame.id = "iframe";
+                }
+
+                // Set iFrame attributes
+                frame.setAttribute("src", externalUrl);
+                //frame.frameBorder = "0";
+                frame.width = "1200px";
+                frame.height = "800px";
+
+                // Add iFrame to div
+                divContainer.appendChild(frame);
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <!-- Buttons -->
+            <input type="button" value="Pickup" onclick="Pickup();">
+            <input type="button" name="IS_Action_Disconnect" value="Disconnect">
+        </div>
+
+        <!-- External Page -->
+        <div id="externalPage">test</div>
+    </body>
 </html>
